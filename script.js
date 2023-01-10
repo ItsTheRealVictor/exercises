@@ -88,11 +88,13 @@ const firstDeck = axios.get('https://deckofcardsapi.com/api/deck/new/shuffle/?de
     .then(res => {
         let card = document.createElement('img')
         document.body.appendChild(card)
-        card.setAttribute('src', `${res.data.cards[0].image}`)
-        cardsRemaining.innerText = JSON.stringify(res.data.remaining)
-        cardsRemaining.innerHTML = res.data.cards[0]
-        
 
+        // no idea how to make this CSS show up with the cards stacked on top of each other.
+        card.setAttribute('src', `${res.data.cards[0].image}`)
+
+        // I can't figure out how to set the h1 innerHTML to this res.data.remaining. It shows up as [object Object]
+        console.log(res.data.remaining)
+        
         })
     })
 })
